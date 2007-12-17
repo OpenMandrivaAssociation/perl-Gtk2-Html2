@@ -13,7 +13,6 @@ URL: http://gtk2-perl.sf.net/
 BuildRequires: gtkhtml2-devel => 2.4, perl-devel perl-ExtUtils-Depends perl-Gtk2 >= 1.083-2mdk
 BuildRequires: perl-ExtUtils-PkgConfig
 Requires: perl-Gtk2 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This package adds perl support for GtkHTML2.
