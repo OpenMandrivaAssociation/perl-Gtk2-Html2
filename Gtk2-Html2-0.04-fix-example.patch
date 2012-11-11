@@ -1,0 +1,40 @@
+--- ./examples/mupzilla	2004-04-25 02:50:04.000000000 +0200
++++ ./examples/mupzilla	2004-09-03 20:17:19.000000000 +0200
+@@ -7,6 +7,7 @@
+ use Gtk2;
+ use Gtk2::Html2;
+ use Gnome2::VFS;
++use Encode;
+ 
+ my $gnomevfsinitialized = FALSE;
+ 
+@@ -41,7 +42,7 @@
+ 	$address->signal_connect (activate => sub {
+ 		my ($entry, $mupzilla) = @_;
+ 		my $uri = $entry->get_text;
+-		if ($uri !~ m{^https?://}) {
++		if ($uri !~ m{^(https?|file)://}) {
+ 			$uri = "http://".$uri;
+ 			$entry->set_text ($uri);
+ 		}
+@@ -131,10 +132,10 @@
+ sub mangle_uri {
+ 	my ($self, $uri) = @_;
+ 	# mangle it to be a full url.  FIXME this is terrible.
+-	return $uri if $uri =~ m{^\s*https?:};
++	return $uri if $uri =~ m{://};
+ 	if ($self->{base_uri}) {
+ 		$uri = $self->{base_uri}->get_scheme . "://"
+-		     . $self->{base_uri}->get_host_name
++		     . ($self->{base_uri}->get_host_name || '')
+ 		     . ($uri =~ m{^/}
+ 		        ? ''
+ 		        : $self->{base_uri}->extract_dirname . '/'
+@@ -215,6 +216,7 @@
+ 				Gnome2::VFS::URI->new ($uri);
+ 		},
+ 		read_chunk => sub {
++			Encode::_utf8_on ($_[1]);
+ 			$self->{doc}->write_stream ($_[1])
+ 				if length $_[1];
+ 			Gtk2->main_iteration
