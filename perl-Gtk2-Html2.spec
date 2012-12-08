@@ -47,3 +47,76 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/auto/*
 
 
+
+
+%changelog
+* Wed Jan 25 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.04-17
++ Revision: 768358
+- svn commit -m mass rebuild of perl extension against perl 5.14.2
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - rebuilt for perl-5.14.2
+    - rebuilt for perl-5.14.x
+
+* Tue Oct 04 2011 Oden Eriksson <oeriksson@mandriva.com> 0.04-14
++ Revision: 702777
+- rebuilt against libpng-1.5.x
+
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 0.04-13
++ Revision: 667185
+- mass rebuild
+
+* Sun Aug 01 2010 Funda Wang <fwang@mandriva.org> 0.04-12mdv2011.0
++ Revision: 564483
+- rebuild for perl 5.12.1
+
+* Thu Sep 03 2009 Christophe Fergeau <cfergeau@mandriva.com> 0.04-11mdv2011.0
++ Revision: 426470
+- rebuild
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 0.04-10mdv2009.0
++ Revision: 223779
+- rebuild
+
+* Tue Jan 15 2008 Thierry Vignaud <tv@mandriva.org> 0.04-9mdv2008.1
++ Revision: 152106
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+* Tue Jun 26 2007 Thierry Vignaud <tv@mandriva.org> 0.04-8mdv2008.0
++ Revision: 44605
+- fix wrong name (really was not compressed
+- rebuild
+
+
+* Thu Mar 29 2007 Frederic Crozat <fcrozat@mandriva.com> 0.04-7mdv2007.1
++ Revision: 149326
+- Rebuild
+
+  + Guillaume Rousse <guillomovitch@mandriva.org>
+    - Import perl-Gtk2-Html2
+
+* Thu Aug 25 2005 Thierry Vignaud <tvignaud@mandriva.com> 0.04-6mdk
+- rebuild with new gtk+
+
+* Thu Mar 10 2005 Christiaan Welvaart <cjw@daneel.dyndns.org> 0.04-5mdk
+- add BuildRequires: perl-ExtUtils-PkgConfig
+
+* Thu Feb 24 2005 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.04-4mdk
+- patch 0: enable file:/// URI in example
+
+* Wed Feb 09 2005 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.04-3mdk
+- rebuild for new perl
+
+* Sat Aug 14 2004 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.04-2mdk
+- rebuild for perl-5.8.5
+
+* Tue May 11 2004 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.04-1mdk
+- new release
+
+* Sat Apr 03 2004 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.02-1mdk
+- initial release
+
