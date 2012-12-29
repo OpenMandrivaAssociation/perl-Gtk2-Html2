@@ -1,55 +1,46 @@
-%define module Gtk2-Html2
-%define fmodule Html2
+%define	modname	Gtk2-Html2
 
-Summary: Perl module for the gtkhtml2 library
-Name:    perl-%module
-Version: 0.04
-Release:	17
-License: GPL or Artistic
-Group:   Development/GNOME and GTK+
-Source:  %module-%version.tar.bz2
-Patch0:  Gtk2-Html2-0.04-fix-example.patch
-URL: http://gtk2-perl.sf.net/
-BuildRequires: gtkhtml2-devel => 2.4, perl-devel perl-ExtUtils-Depends perl-Gtk2 >= 1.083-2mdk
-BuildRequires: perl-ExtUtils-PkgConfig
-Requires: perl-Gtk2 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Summary:	Perl module for the gtkhtml2 library
+Name:		perl-%{modname}
+Version:	0.04
+Release:	18
+License:	GPL+ or Artistic
+Group:		Development/GNOME and GTK+
+Source0:	%{modname}-%{version}.tar.bz2
+Patch0:		Gtk2-Html2-0.04-fix-example.patch
+URL:		http://gtk2-perl.sf.net/
+BuildRequires:	gtkhtml2-devel => 2.4 perl-devel perl-ExtUtils-Depends perl-Gtk2 >= 1.083-2mdk
+BuildRequires:	perl-ExtUtils-PkgConfig
+Requires:	perl-Gtk2 
 
 %description
 This package adds perl support for GtkHTML2.
 
-
 %prep
-%setup -q -n %module-%version
+%setup -q -n %{modname}-%{version}
 %patch0 -p0
-find -type d -name CVS | rm -rf 
 
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
-export GTK2_PERL_CFLAGS="$RPM_OPT_FLAGS"
 perl Makefile.PL INSTALLDIRS=vendor
-make OPTIMIZE="$RPM_OPT_FLAGS"
-#%make test || :
+%make
+
+%check
+%make test || :
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
-
 %files
-%defattr(-, root, root)
 %doc examples/*
 %{_mandir}/*/*
 %{perl_vendorarch}/Gtk2/*
 %{perl_vendorarch}/auto/*
 
-
-
-
 %changelog
+* Sat Dec 29 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.04-18
+- rebuild for new perl-5.16.2
+- cleanups
+
 * Wed Jan 25 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.04-17
 + Revision: 768358
 - svn commit -m mass rebuild of perl extension against perl 5.14.2
