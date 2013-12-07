@@ -3,7 +3,7 @@
 Summary:	Perl module for the gtkhtml2 library
 Name:		perl-%{modname}
 Version:	0.04
-Release:	21
+Release:	22
 License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
 Url:		http://gtk2-perl.sf.net/
