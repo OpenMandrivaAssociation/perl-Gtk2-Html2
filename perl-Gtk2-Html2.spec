@@ -12,8 +12,11 @@ Patch0:		Gtk2-Html2-0.04-fix-example.patch
 BuildRequires:	perl-devel
 BuildRequires:	perl-ExtUtils-Depends
 BuildRequires:	perl-ExtUtils-PkgConfig
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	perl-Gtk2
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libgtkhtml-2.0)
+BuildRequires:  pkgconfig(libxml-2.0)
 Requires:	perl-Gtk2 
 
 %description
