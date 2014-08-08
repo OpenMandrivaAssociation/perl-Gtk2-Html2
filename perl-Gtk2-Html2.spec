@@ -8,6 +8,7 @@ License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
 Url:		http://gtk2-perl.sf.net/
 Source0:	%{modname}-%{version}.tar.bz2
+Source1:	perl-Gtk2-Html2.rpmlintrc
 Patch0:		Gtk2-Html2-0.04-fix-example.patch
 BuildRequires:	perl-devel
 BuildRequires:	perl-ExtUtils-Depends
